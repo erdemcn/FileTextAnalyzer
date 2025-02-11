@@ -1,0 +1,16 @@
+C:\Users\erdem\Desktop\FileTextAnalyzer\FileTextAnalyzer\bin\Debug\FileTextAnalyzer.exe.config
+C:\Users\erdem\Desktop\FileTextAnalyzer\FileTextAnalyzer\bin\Debug\FileTextAnalyzer.exe
+C:\Users\erdem\Desktop\FileTextAnalyzer\FileTextAnalyzer\bin\Debug\FileTextAnalyzer.pdb
+C:\Users\erdem\Desktop\FileTextAnalyzer\FileTextAnalyzer\bin\Debug\DocumentFormat.OpenXml.dll
+C:\Users\erdem\Desktop\FileTextAnalyzer\FileTextAnalyzer\bin\Debug\DocumentFormat.OpenXml.Framework.dll
+C:\Users\erdem\Desktop\FileTextAnalyzer\FileTextAnalyzer\bin\Debug\DocumentFormat.OpenXml.xml
+C:\Users\erdem\Desktop\FileTextAnalyzer\FileTextAnalyzer\bin\Debug\DocumentFormat.OpenXml.Framework.xml
+C:\Users\erdem\Desktop\FileTextAnalyzer\FileTextAnalyzer\obj\Debug\FileTextAnalyzer.csproj.AssemblyReference.cache
+C:\Users\erdem\Desktop\FileTextAnalyzer\FileTextAnalyzer\obj\Debug\FileTextAnalyzer.csproj.CoreCompileInputs.cache
+C:\Users\erdem\Desktop\FileTextAnalyzer\FileTextAnalyzer\obj\Debug\FileText.39EA3817.Up2Date
+C:\Users\erdem\Desktop\FileTextAnalyzer\FileTextAnalyzer\obj\Debug\FileTextAnalyzer.exe
+C:\Users\erdem\Desktop\FileTextAnalyzer\FileTextAnalyzer\obj\Debug\FileTextAnalyzer.pdb
+C:\Users\erdem\Desktop\FileTextAnalyzer\FileTextAnalyzer\bin\Debug\BouncyCastle.Cryptography.dll
+C:\Users\erdem\Desktop\FileTextAnalyzer\FileTextAnalyzer\bin\Debug\itextsharp.dll
+C:\Users\erdem\Desktop\FileTextAnalyzer\FileTextAnalyzer\bin\Debug\BouncyCastle.Cryptography.xml
+C:\Users\erdem\Desktop\FileTextAnalyzer\FileTextAnalyzer\bin\Debug\itextsharp.xml
