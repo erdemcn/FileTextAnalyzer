@@ -1,0 +1,19 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/FileTextAnalyzer/CopilotIndices/0.2.1657.32929/CodeChunks.db-shm
+/.vs/FileTextAnalyzer/CopilotIndices/0.2.1657.32929/CodeChunks.db-wal
+/.vs/FileTextAnalyzer/CopilotIndices/0.2.1657.32929/SemanticSymbols.db-shm
+/.vs/FileTextAnalyzer/FileContentIndex/4c41a97b-50e4-402b-80b0-0f6cb94de62b.vsidx
+/.vs/FileTextAnalyzer/FileContentIndex/b9a4b0d9-327e-47b9-992d-aef4ee0ba96e.vsidx
+/.vs/FileTextAnalyzer/FileContentIndex/ee40b106-44ef-457d-a7dc-0be1ff2f6e57.vsidx
+/FileTextAnalyzer/bin/Debug/FileTextAnalyzer.exe
+/FileTextAnalyzer/bin/Debug/FileTextAnalyzer.pdb
+/FileTextAnalyzer/bin/Debug/log.txt
+/.vs/FileTextAnalyzer/v17/.suo
+/.vs/FileTextAnalyzer/v17/DocumentLayout.backup.json
+/.vs/FileTextAnalyzer/v17/DocumentLayout.json
+/FileTextAnalyzer/obj/Debug/FileTextAnalyzer.csproj.CoreCompileInputs.cache
+/FileTextAnalyzer/obj/Debug/FileTextAnalyzer.exe
+/FileTextAnalyzer/obj/Debug/FileTextAnalyzer.pdb
