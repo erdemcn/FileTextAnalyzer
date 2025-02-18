@@ -165,21 +165,17 @@ namespace TextFileAnalyzer
     /// </summary>
     public static class FileAnalyzer
     {
-
         private static readonly HashSet<string> ExcludedWords = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
-        {
-            "ve", "ile", "de", "da", "ama", "fakat", "lakin", "ki"
-        };
+    {
+        "ve", "ile", "de", "da", "ama", "fakat", "lakin", "ki"
+    };
 
         public static FileAnalysisResult AnalyzeContent(string content)
         {
             FileAnalysisResult result = new FileAnalysisResult();
 
-
             result.PunctuationCount = content.Count(c => char.IsPunctuation(c));
 
-            // Kelimeleri elde etmek için Regex kullan
-            // Kelimeler, alfanümerik karakter dizileri olarak kabul ediliyor.
             var words = Regex.Matches(content, @"\b[\w']+\b")
                              .Cast<Match>()
                              .Select(m => m.Value)
@@ -189,14 +185,11 @@ namespace TextFileAnalyzer
 
             foreach (string word in words)
             {
-
                 if (double.TryParse(word, out _))
                     continue;
 
-
                 if (ExcludedWords.Contains(word))
                     continue;
-
 
                 string lowerWord = word.ToLower();
 
@@ -209,6 +202,7 @@ namespace TextFileAnalyzer
             result.UniqueWordCount = wordFrequencies.Count;
 
             result.RepeatedWords = wordFrequencies
+                .Where(kvp => kvp.Value > 1) // Sadece 1'den fazla geçen kelimeleri dahil et
                 .OrderByDescending(kvp => kvp.Value)
                 .Select(kvp => new WordStat { Word = kvp.Key, Count = kvp.Value })
                 .ToList();
@@ -216,6 +210,7 @@ namespace TextFileAnalyzer
             return result;
         }
     }
+
 
     /// <summary>
     /// Analiz sonuçlarını tutan veri modeli.
