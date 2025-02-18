@@ -225,9 +225,9 @@ namespace TextFileAnalyzer
                 string logEntry = $"{DateTime.Now:G} - {message}";
                 File.AppendAllText(logFilePath, logEntry + Environment.NewLine);
             }
-            catch
+            catch(Exception ex)
             {
-
+                Console.WriteLine($"Loglama hatası: {ex.Message}");
             }
         }
     }
