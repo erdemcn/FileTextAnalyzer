@@ -1,5 +1,4 @@
-﻿using DocumentFormat.OpenXml.Packaging;
-using DocumentFormat.OpenXml.Wordprocessing;
+﻿using FileTextAnalyzer.Extentions;
 using iTextSharp.text.pdf;
 using iTextSharp.text.pdf.parser;
 using System;
@@ -8,7 +7,6 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Windows.Forms;
 
 
 
@@ -68,26 +66,7 @@ namespace TextFileAnalyzer
             Console.ReadKey();
         }
     }
-
-    /// <summary>
-    /// Dosya seçim işlemini gerçekleştiren sınıf.
-    /// </summary>
-    public static class FileSelector
-    {
-        public static string SelectFile()
-        {
-            using (OpenFileDialog openFileDialog = new OpenFileDialog())
-            {
-                openFileDialog.Title = "Analiz için bir dosya seçin";
-                openFileDialog.Filter = "Metin Dosyaları (*.txt)|*.txt|Word Belgeleri (*.docx)|*.docx|PDF Dosyaları (*.pdf)|*.pdf";
-                if (openFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    return openFileDialog.FileName;
-                }
-            }
-            return null;
-        }
-    }
+   
 
     /// <summary>
     /// Dosya içeriğini okuma işlemlerini yapan sınıf.
