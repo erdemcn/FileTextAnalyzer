@@ -1,12 +1,7 @@
 ﻿using FileTextAnalyzer.Extentions;
-using iTextSharp.text.pdf;
-using iTextSharp.text.pdf.parser;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
 
 
 
@@ -68,132 +63,9 @@ namespace TextFileAnalyzer
     }
    
 
-    /// <summary>
-    /// Dosya içeriğini okuma işlemlerini yapan sınıf.
-    /// </summary>
-    public static class FileReader
-    {
-        public static string ReadFileContent(string filePath)
-        {
-            try
-            {
-                string extension = System.IO.Path.GetExtension(filePath);
+   
 
-
-                switch (extension)
-                {
-                    case ".txt":
-                        return File.ReadAllText(filePath);
-                    case ".docx":
-                        return ReadDocxFile(filePath);
-                    case ".pdf":
-                        return ReadPdfFile(filePath);
-                    default:
-                        throw new NotSupportedException("Desteklenmeyen dosya türü.");
-                }
-            }
-            catch (Exception ex)
-            {
-                Logger.Log($"Dosya okunurken hata: {ex.Message}");
-                throw; // Hata üst katmana iletilmek üzere yeniden fırlatılır.
-            }
-        }
-
-        private static string ReadDocxFile(string filePath)
-        {
-            try
-            {
-                using (var wordDoc = DocumentFormat.OpenXml.Packaging.WordprocessingDocument.Open(filePath, false))
-                {
-                    DocumentFormat.OpenXml.Wordprocessing.Body body = wordDoc.MainDocumentPart.Document.Body;
-                    return body.InnerText;
-                }
-            }
-            catch (Exception ex)
-            {
-                Logger.Log($".docx dosyası okunurken hata: {ex.Message}");
-                throw;
-            }
-        }
-
-        private static string ReadPdfFile(string filePath)
-        {
-            try
-            {
-                // PdfReader ile PDF dosyasını aç ve her sayfadaki metni çıkar
-                StringBuilder text = new StringBuilder();
-                using (PdfReader reader = new PdfReader(filePath))
-                {
-                    for (int i = 1; i <= reader.NumberOfPages; i++)
-                    {
-                        text.Append(PdfTextExtractor.GetTextFromPage(reader, i));
-                    }
-                }
-                return text.ToString();
-            }
-            catch (Exception ex)
-            {
-                Logger.Log($"PDF dosyası okunurken hata: {ex.Message}");
-                throw;
-            }
-        }
-    }
-
-    /// <summary>
-    /// Dosya içeriğini analiz eden sınıf.
-    /// </summary>
-    public static class FileAnalyzer
-    {
-        private static readonly HashSet<string> ExcludedWords = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
-    {
-        "ve", "ile", "de", "da", "ama", "fakat", "lakin", "ki"
-    };
-
-        public static FileAnalysisResult AnalyzeContent(string content)
-        {
-            FileAnalysisResult result = new FileAnalysisResult();
-
-            result.PunctuationCount = content.Count(c => char.IsPunctuation(c));
-
-            var words = Regex.Matches(content, @"\b[\w']+\b")
-                             .Cast<Match>()
-                             .Select(m => m.Value)
-                             .ToList();
-
-            Dictionary<string, int> wordFrequencies = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase);
-
-            foreach (string word in words)
-            {
-                if (double.TryParse(word, out _))
-                    continue;
-
-                if (ExcludedWords.Contains(word))
-                    continue;
-
-                string lowerWord = word.ToLower();
-
-                if (wordFrequencies.ContainsKey(lowerWord))
-                    wordFrequencies[lowerWord]++;
-                else
-                    wordFrequencies[lowerWord] = 1;
-            }
-
-            result.UniqueWordCount = wordFrequencies.Count;
-
-            result.RepeatedWords = wordFrequencies
-                .Where(kvp => kvp.Value > 1) // Sadece 1'den fazla geçen kelimeleri dahil et
-                .OrderByDescending(kvp => kvp.Value)
-                .Select(kvp => new WordStat { Word = kvp.Key, Count = kvp.Value })
-                .ToList();
-
-            return result;
-        }
-    }
-
-
-    /// <summary>
-    /// Analiz sonuçlarını tutan veri modeli.
-    /// </summary>
+    
     public class FileAnalysisResult
     {
         public int UniqueWordCount { get; set; }
@@ -201,9 +73,7 @@ namespace TextFileAnalyzer
         public List<WordStat> RepeatedWords { get; set; }
     }
 
-    /// <summary>
-    /// Tekrar eden kelime ve tekrar sayısını tutan model.
-    /// </summary>
+    
     public class WordStat
     {
         public string Word { get; set; }
@@ -211,9 +81,7 @@ namespace TextFileAnalyzer
 
     }
 
-    /// <summary>
-    /// Uygulama loglama işlemlerini yapan sınıf.
-    /// </summary>
+    
     public static class Logger
     {
         private static readonly string logFilePath = "log.txt";
