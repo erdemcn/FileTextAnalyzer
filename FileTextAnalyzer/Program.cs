@@ -1,9 +1,7 @@
 ﻿using FileTextAnalyzer.Extentions;
+using FileTextAnalyzer.Model;
 using System;
-using System.Collections.Generic;
 using System.IO;
-
-using System.Text;
 
 
 
@@ -72,26 +70,8 @@ namespace TextFileAnalyzer
     
 
 
-    #region FileAnalysisResult
-
-    public class FileAnalysisResult
-    {
-        public int UniqueWordCount { get; set; }
-        public int PunctuationCount { get; set; }
-        public List<WordStat> RepeatedWords { get; set; }
-    }
-    #endregion
 
 
-    #region WordStat
-
-    public class WordStat
-    {
-        public string Word { get; set; }
-        public int Count { get; set; }
-
-    }
-    #endregion
 
     #region Logger
 
