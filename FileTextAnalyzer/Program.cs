@@ -3,6 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 
+using System.Text;
+
+
 
 
 namespace TextFileAnalyzer
@@ -61,27 +64,37 @@ namespace TextFileAnalyzer
             Console.ReadKey();
         }
     }
-   
 
-   
+
 
     
+
+    
+
+
+    #region FileAnalysisResult
+
     public class FileAnalysisResult
     {
         public int UniqueWordCount { get; set; }
         public int PunctuationCount { get; set; }
         public List<WordStat> RepeatedWords { get; set; }
     }
+    #endregion
 
-    
+
+    #region WordStat
+
     public class WordStat
     {
         public string Word { get; set; }
         public int Count { get; set; }
 
     }
+    #endregion
 
-    
+    #region Logger
+
     public static class Logger
     {
         private static readonly string logFilePath = "log.txt";
@@ -99,4 +112,5 @@ namespace TextFileAnalyzer
             }
         }
     }
+    #endregion
 }

@@ -7,6 +7,9 @@ using System.IO;
 
 namespace FileTextAnalyzer.Extentions
 {
+
+    # region FileReader 
+
     public static class FileReader
     {
         public static string ReadFileContent(string filePath)
@@ -74,4 +77,7 @@ namespace FileTextAnalyzer.Extentions
             }
         }
     }
+
+    #endregion
+
 }

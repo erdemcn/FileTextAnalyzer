@@ -6,6 +6,9 @@ using TextFileAnalyzer;
 
 namespace FileTextAnalyzer.Extentions
 {
+
+    #region FileAnalyzer
+
     public static class FileAnalyzer
     {
         private static readonly HashSet<string> ExcludedWords = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
@@ -53,4 +56,7 @@ namespace FileTextAnalyzer.Extentions
             return result;
         }
     }
+
+    #endregion
+
 }
